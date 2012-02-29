@@ -594,10 +594,7 @@ List.prototype = {
 					'opacity': 1
 				});
 				
-				newTodo.find('input')
-				.bind('focus', function(){
-					this.value = '';
-				})
+				newTodo.find('input').val('').focus()
 				.bind('blur', function(){
 					window.editing = false;
 					todos.css('opacity', 1);
