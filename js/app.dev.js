@@ -592,9 +592,6 @@ List.prototype = {
 				});
 				
 				newTodo.find('input')
-				.bind('focus', function(){
-					this.value = '';
-				})
 				.bind('blur', function(){
 					window.editing = false;
 					todos.css('opacity', 1);
