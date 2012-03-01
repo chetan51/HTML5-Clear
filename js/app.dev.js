@@ -579,6 +579,9 @@ List.prototype = {
 			
 				var todos = list.view.find('li.todo');
 				todos.addClass('slow').css('opacity', .3);
+				setTimeout(function(){
+					todos.removeClass('slow');
+				}, 350);
 			
 				var newTodo = $(templates.newTodo('bottom'))
 				.bind('tap', function(e){
@@ -592,6 +595,9 @@ List.prototype = {
 				});
 				
 				newTodo.find('input')
+				.bind('focus', function(){
+					this.value = '';
+				})
 				.bind('blur', function(){
 					window.editing = false;
 					todos.css('opacity', 1);
@@ -612,8 +618,9 @@ List.prototype = {
 					}
 				});
 			
-				todos.removeClass('slow');
-				newTodo.find('input').val('').focus();
+				setTimeout(function(){ //this solving transition not working problem, don't know why though
+					newTodo.css('-webkit-transform','rotateX(0deg)');
+				}, 10);
 				
 			}
 			
