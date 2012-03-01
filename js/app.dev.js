@@ -612,14 +612,8 @@ List.prototype = {
 					}
 				});
 			
-				setTimeout(function(){
-					todos.removeClass('slow');
-					newTodo.find('input').val('').focus()
-				}, 350);
-				
-				setTimeout(function(){ //this solving transition not working problem, don't know why though
-					newTodo.css('-webkit-transform','rotateX(0deg)');
-				}, 10);
+				todos.removeClass('slow');
+				newTodo.find('input').val('').focus();
 				
 			}
 			
